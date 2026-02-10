@@ -813,7 +813,7 @@ function addToCartById(id, isPDP) {
         }).then((result) => {
             if (result.isConfirmed) {
                 // If the confirm button is clicked, redirect to index.html
-                window.location.href = '/cart.html';
+                window.location.href = '/cart';
             } else {
                 // Handle the case where the user clicks the cancel button or closes the modal
                 // You can add additional logic here if needed
@@ -2175,11 +2175,10 @@ async function input_login(redirectUrl) {
                 localStorage.setItem("lm.stroage.login.userId", id);
                 Swal.fire('로그인', `${id}님, 로그인 되었습니다.`, 'success').then(() => {
                     if (redirectUrl == 'mypage') {
-                        location.pathname = 'mypage.html';
+                        window.location.href = '/mypage';
                         return true
                     } else {
-                        location.reload();
-
+                        window.location.href = '/';
                         return true
                     }
                 });
@@ -2229,10 +2228,10 @@ async function handleNewLogin(redirectUrl) {
         localStorage.setItem("lm.stroage.login.userId", id);
         Swal.fire('로그인', `${id}님, 로그인 되었습니다.`, 'success').then(() => {
             if (redirectUrl == 'mypage') {
-                location.pathname = 'mypage.html';
+                window.location.href = '/mypage';
                 return true
             } else {
-                location.reload();
+                window.location.href = '/';
                 return true
             }
         });

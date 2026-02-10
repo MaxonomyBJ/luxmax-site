@@ -1,106 +1,104 @@
-<!-- 공통 네비게이션 바 -->
-<div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-        <strong>Luxmax</strong>
+<div class="navbar-container">
+    <a class='navbar-brand' href='/' onclick='amplitudeLogCustomEvent(\'홈버튼 클릭\');'>
+        Luxmax
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="bi bi-house me-1"></i>홈
-                </a>
-            </li>
-        </ul>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <button class="btn btn-link nav-link" onclick="requestPushPermission()">
-                    <i class="bi bi-bell"></i>
-                </button>
+            <!-- Shop  -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownShop" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">쇼핑</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+                    <li><a class='dropdown-item' href='/'>모든 상품</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class='dropdown-item' href='/?query=Best&sort=tag'>인기 상품</a></li>
+                    <li><a class='dropdown-item' href='/?query=Sale&sort=tag'>할인 상품</a></li>
+                    <li><a class='dropdown-item' href='/?query=New&sort=tag'>신규 상품</a></li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="cart.html">
-                    <i class="bi bi-cart3"></i>
-                    <span id="cartBadge" class="badge bg-danger">0</span>
-                </a>
+
+            <!-- Category  -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownCategory" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">카테고리</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+                    <li><a class='dropdown-item' href='/'>모든 상품</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class='dropdown-item' href='/?query=가방&sort=category'>명품 가방</a></li>
+                    <li><a class='dropdown-item' href='/?query=시계&sort=category'>명품 시계</a></li>
+                    <li><a class='dropdown-item' href='/?query=의류&sort=category'>명품 의류</a></li>
+                    <li><a class='dropdown-item' href='/?query=신발&sort=category'>명품 신발</a></li>
+                    <li><a class='dropdown-item' href='/?query=지갑&sort=category'>명품 지갑</a></li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" id="loginLink" onclick="handleLoginClick(event)">
-                    <span id="login_text">
-                        <i class="bi bi-box-arrow-in-left me-1"></i>로그인
-                    </span>
-                </a>
+
+            <!-- Coupon  -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownCoupon" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">쿠폰</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownCoupon">
+                    <li><a class='dropdown-item' href='/mycoupon'>나의 쿠폰</a></li>
+                    <li><a class='dropdown-item' href='/coupon'>쿠폰 리스트</a></li>
+                </ul>
             </li>
+
+            <!-- Membership  -->
             <li class="nav-item">
-                <a class="nav-link" href="mypage.html" id="mypageLink" style="display: none;">
-                    <i class="bi bi-person-circle me-1"></i>마이페이지
-                </a>
+                <a class='nav-link' href='/membership'>멤버십</a>
             </li>
         </ul>
     </div>
+
+    <!-- PC 검색창 (중앙 오른쪽) -->
+    <div class="navbar-center-search desktop-search">
+        <div class="top-search">
+            <input id="searchKeyword" type="text" class="search-input" placeholder="검색어를 입력해주세요."
+                onkeyup="inputSearch();" oninput="syncSearchInputs();">
+            <button type="button" class="search-btn" onclick="clickSearch();" aria-label="검색">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Search Bar (outside navbar) -->
+    <div class="mobile-search-bar">
+        <div class="top-search">
+            <input id="searchKeywordMobile" type="text" class="search-input" placeholder="검색어를 입력해주세요."
+                onkeyup="inputSearch();" oninput="syncSearchInputs();">
+            <button type="button" class="search-btn" onclick="clickSearch();" aria-label="검색">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="navbar-actions">
+        <!-- Notification Icon  -->
+        <a href='#;' class="navbar-action-btn"
+            onclick="braze.requestContentCardsRefresh(); braze.toggleContentCards(); amplitudeLogCustomEvent('알림함 클릭')"
+            aria-label="알림">
+            <i class="bi-bell"></i>
+        </a>
+
+        <!-- My Page Icon  -->
+        <a href='#;' class="navbar-action-btn" onclick="mypageClick();" aria-label="마이페이지">
+            <i class="bi bi-person"></i>
+        </a>
+
+        <!-- Cart Icon  -->
+        <a aria-label='장바구니' class='navbar-action-btn' href='/cart' onclick='amplitudeLogCustomEvent(\'장바구니 리스트 아이콘 클릭\')'>
+            <i class="bi-cart-fill"></i>
+            <span id="addToCart_count" class="cart-badge"></span>
+        </a>
+
+        <!-- Login Icon  -->
+        <a class="navbar-action-btn" onclick="input_login()" id="login_text" aria-label="로그인">
+            <i id="login_icon" class="bi bi-box-arrow-in-left"></i>
+        </a>
+    </div>
 </div>
-
-<script>
-function requestPushPermission() {
-    if (typeof braze !== 'undefined' && braze.requestPushPermission) {
-        braze.requestPushPermission();
-    } else {
-        alert('푸시 알림 권한을 요청할 수 없습니다.');
-    }
-}
-
-function handleLoginClick(event) {
-    event.preventDefault();
-    const userId = localStorage.getItem('lm.stroage.login.userId');
-    
-    if (userId) {
-        // 로그아웃
-        if (confirm('로그아웃하시겠습니까?')) {
-            localStorage.removeItem('lm.stroage.login.userId');
-            location.reload();
-        }
-    } else {
-        // 로그인 페이지로 이동
-        window.location.href = 'login.html';
-    }
-}
-
-// 로그인 상태 확인 및 UI 업데이트
-document.addEventListener('DOMContentLoaded', function() {
-    const userId = localStorage.getItem('lm.stroage.login.userId');
-    const loginLink = document.getElementById('loginLink');
-    const loginText = document.getElementById('login_text');
-    const mypageLink = document.getElementById('mypageLink');
-    
-    if (userId) {
-        if (loginText) {
-            loginText.innerHTML = '<i class="bi bi-box-arrow-right me-1"></i>로그아웃';
-        }
-        if (mypageLink) {
-            mypageLink.style.display = 'block';
-        }
-    } else {
-        if (loginText) {
-            loginText.innerHTML = '<i class="bi bi-box-arrow-in-left me-1"></i>로그인';
-        }
-        if (mypageLink) {
-            mypageLink.style.display = 'none';
-        }
-    }
-    
-    // 장바구니 배지 업데이트
-    updateCartBadge();
-});
-
-function updateCartBadge() {
-    const cartItems = JSON.parse(localStorage.getItem('lm.storage.item.cartItems') || '[]');
-    const badge = document.getElementById('cartBadge');
-    if (badge) {
-        const totalQuantity = cartItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
-        badge.textContent = totalQuantity;
-        badge.style.display = totalQuantity > 0 ? 'inline' : 'none';
-    }
-}
-</script>
