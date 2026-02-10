@@ -1,0 +1,7 @@
+# Netlify redirects (if using Netlify)
+/cart /index.html 200
+/mypage /mypage.html 200
+/coupon /index.html 200
+/mycoupon /index.html 200
+/membership /index.html 200
+/order /order.html 200

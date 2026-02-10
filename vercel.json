@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/cart",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mypage",
+      "destination": "/mypage.html"
+    },
+    {
+      "source": "/coupon",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mycoupon",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/membership",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/order",
+      "destination": "/order.html"
+    }
+  ]
+}
