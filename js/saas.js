@@ -15,12 +15,12 @@
     y.async = 1; (b = p.getElementsByTagName(P)[0]).parentNode.insertBefore(y, b);
 }(window, document, 'script');
 
-var luxmaxBrazeProdKey = 'ceecd209-9073-4584-95bb-5076dcca26a8'
-var luxmaxBrazeDevKey = 'c69fd386-c1c9-4a2e-ad1f-852a277b4dd0'
-var luxmaxBrazeAdminKey = '6e322aed-e91b-41c6-8845-2710e11d2ba1'
-var luxmaxBrazeOfficialKey = 'b5df0871-77e3-4294-b36b-52f70c9a2806'
-var luxmaxHandsOnBrazeProdKey = 'c86d6586-39bd-4d79-8621-bb92390a3bbb'
-var kGroupBrazeKey = 'cae18af2-4b2a-48ac-bc92-395cc3583261'
+var luxmaxBrazeProdKey = 'be2bed8f-a25c-4987-8910-2c09259dbfde'
+var luxmaxBrazeDevKey = 'be2bed8f-a25c-4987-8910-2c09259dbfde'
+var luxmaxBrazeAdminKey = 'be2bed8f-a25c-4987-8910-2c09259dbfde'
+var luxmaxBrazeOfficialKey = 'be2bed8f-a25c-4987-8910-2c09259dbfde'
+var luxmaxHandsOnBrazeProdKey = 'be2bed8f-a25c-4987-8910-2c09259dbfde'
+var kGroupBrazeKey = 'be2bed8f-a25c-4987-8910-2c09259dbfde'
 
 // Luxmax Prod group 
 braze.initialize(luxmaxBrazeProdKey, {
